@@ -1,0 +1,32 @@
+.ql-image{
+    display: none;
+}
+.ql-editor{
+    min-height: 12rem !important;
+    max-height: 18rem !important;
+    overflow: auto;
+}
+
+.navbar-search input::placeholder{
+    color: rgba(238, 234, 234, 0.884) !important;
+}
+
+.card a img{
+    opacity: .8;
+}
+
+.navbar-search-light{
+    display: block;
+    transform: translateX(0%);
+}
+.ct{
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.ct::-webkit-scrollbar{
+    display: none;
+}
+
+.no-arrow::after{
+    content: none !important;
+}

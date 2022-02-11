@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Subscription;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +25,15 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $due_subscriptions = [];
+        $subs = Subscription::with(['user','creator','service','pricing'])->get();
+
+        foreach ($subs as $sub) {
+           if( $sub->due->diffInHours($sub->start) <= 0){
+
+               $due_subscriptions[] = $sub;
+           }
+        }
+        return view('dashboard', compact('due_subscriptions'));
     }
 }

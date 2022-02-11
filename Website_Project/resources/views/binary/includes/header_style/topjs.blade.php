@@ -1,0 +1,13 @@
+<script type="text/javascript" src="{{  asset('asset/includes/js/jquery/jquery.js?ver=1.10.2' )  }}"></script>
+  <script type="text/javascript" src="{{  asset('asset/includes/js/jquery/jquery-migrate.min.js?ver=1.2.1' )  }}"></script>
+  <script type="text/javascript" src="{{  asset('content/plugins/LayerSlider/js/layerslider.kreaturamedia.jquery.js?ver=4.0.1' )  }}"></script>
+  <script type="text/javascript" src="{{  asset('asset/content/plugins/LayerSlider/js/jquery-easing-1.3.js?ver=1.3.0' )  }}"></script>
+  <script type="text/javascript" src="{{  asset('asset/content/plugins/LayerSlider/js/jquerytransit.js?ver=0.9.9' )  }}"></script>
+  <script type="text/javascript" src="{{  asset('asset/content/plugins/LayerSlider/js/layerslider.transitions.js?ver=4.0.1' )  }}"></script>
+  <script type="text/javascript" src="{{  asset('asset/content/plugins/revslider/rs-plugin/js/jquery.themepunch.revolution.min.js' )  }}"></script>
+  <script type="text/javascript" src="{{  asset('asset/content/js/jquery.easy-pie-chart.js?ver=1' )  }}"></script>
+  <script type="text/javascript" src="{{  asset('asset/content/js/jquery.appear-1.1.1.modified.js?ver=1' )  }}"></script>
+  <script type="text/javascript" src="{{  asset('asset/content/js/modernizr.custom.66803.js?ver=1' )  }}"></script>
+  <script type="text/javascript" src="{{  asset('asset/content/js/animations.js?ver=1' )  }}"></script>
+  <script type="text/javascript" src="{{  asset('asset/content/js/jquery.countdown.min.js?ver=1' )  }}"></script>
+  <script type="text/javascript" src="{{  asset('asset/content/js/waypoints.min.js?ver=1' )  }}"></script>
