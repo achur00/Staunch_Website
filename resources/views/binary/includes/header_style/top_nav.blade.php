@@ -82,11 +82,11 @@
               <div class="span12">
                 <ul class="footer_social_icons">
                   <li class="" style="background-image: none !important; margin-top: 3px;"><a
-                      href="{{ $contact->instagram_url }}"><i class="fab fa-instagram"></i></a></li>
-                  <li class="youtube"><a href="{{ $contact->youtube_url }}"><span></span></a></li>
-                  <li class="linkedin"><a href="{{ $contact->linkedin_url }}"><span></span></a></li>
+                      href="https://www.instagram.com/staunch_technologies" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                  <li class="youtube"><a href="https://www.youtube.com/channel/UCQLLVA8_tb0QBvGT6fjcB7g" target="_blank"><span></span></a></li>
+                  <li class="linkedin"><a href="https://www.linkedin.com/company/staunch-technologies-limited/" target="_blank"><span></span></a></li>
                   <li class="twitter"><a href="{{ $contact->twitter_url }}"><span></span></a></li>
-                  <li class="facebook"><a href="{{ $contact->facebook_url }}"><span></span></a></li>
+                  <li class="facebook"><a href="https://www.facebook.com/StaunchTechnologiesLtd" target="_blank"><span></span></a></li>
                 </ul>
               </div>
             </div>

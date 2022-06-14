@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AboutUsController;
+use App\Http\Controllers\CareerController;
 use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\HomePageController;
@@ -46,6 +47,7 @@ Route::get('/', 'App\Http\Controllers\PagesController@index');
 
 //route for contact us pages
 Route::get('/contact', 'App\Http\Controllers\PagesController@Contact');
+Route::post('contact/message', [ContactUsController::class, 'sendMessage'])->name('contact.message');
 
 //route for products pages
 Route::get('/products', 'App\Http\Controllers\ProductController@all');
@@ -92,6 +94,11 @@ Route::get('/mission_and_vision', 'App\Http\Controllers\PagesController@Mission_
 
 //route for Clientele
 Route::get('/clientele', 'App\Http\Controllers\PagesController@Clientele');
+
+// careers
+Route::get('careers/info', [CareerController::class,'showCareerInfo'])->name('career.info.show');
+Route::post('careers/info', [CareerController::class,'storeCareerInfo'])->name('career.info.store');
+Route::resource('careers', CareerController::class);
 
 Route::prefix('admin')->middleware(['auth', 'IsAdmin'])->group(function () {
     // Admin/user Route

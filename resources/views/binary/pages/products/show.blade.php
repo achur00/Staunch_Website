@@ -46,7 +46,7 @@
     <div class="container" id="blog">
         <div class="row">
 
-            <div class="span9">
+            <div class="span7">
 
 
 
@@ -96,7 +96,7 @@
 
 
 
-                                    <dl class="dl-horizontal">
+                                    {{--<dl class="dl-horizontal" style="background: none !important;">
                                         <dt>
                                             <div class="dt"><span
                                                     class="date">{{ $product->created_at->format('d') }}</span><span
@@ -112,7 +112,7 @@
                                             </div>
                                         </dd>
 
-                                    </dl>
+                                    </dl>--}}
 
 
 
@@ -211,19 +211,35 @@
             </div>
 
 
-            <aside class="span3 sidebar" id="widgetarea-sidebar">
-
+            <aside class="span5 sidebar" id="widgetarea-sidebar">
+                 <div class="row-fluid row-dynamic-el" style="margin-bottom: 20px !important;">
+                    <div class="span12">
+                        <div class="header">
+                            <dl class="dl-horizontal">
+                                <dt><i class="moon-info"></i></dt>
+                                <dd style="margin-left:55px !important; margin-top:10px;">
+                                    <h4>About {{$product->name}}</h4>
+                                </dd>
+                            </dl>
+                        </div>
+                        <div class="content">
+                            <p>{!! $product->description !!}</p>
+                        </div>
+                        
+                    </div>
+                </div>
+                
                 <div class="single_content" style="margin-bottom: 25px;">
                     <ul class="metas" style="padding-top: 0;">
+                        <!--<li  style="background: none !important; padding-left: 0;">-->
+                        <!--    <dl class="dl-horizontal">-->
+                        <!--        <dt>Client:</dt>-->
+                        <!--        <dd>Max Power</dd>-->
+                        <!--    </dl>-->
+                        <!--</li>-->
                         <li  style="background: none !important; padding-left: 0;">
                             <dl class="dl-horizontal">
-                                <dt>Client:</dt>
-                                <dd>Max Power</dd>
-                            </dl>
-                        </li>
-                        <li  style="background: none !important; padding-left: 0;">
-                            <dl class="dl-horizontal">
-                                <dt>SKills/Tools:</dt>
+                                <dt>Technologies:</dt>
                                 <dd>{{ $product->tools }}</dd>
                             </dl>
                         </li>
@@ -250,7 +266,7 @@
                         dolor sit amet, consectetuer adipiscing elit. Plugin ready, in case your business needs a multi
                         language site. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. </div>
                 </div> --}}
-                <div id="categories-2" class="widget widget_categories">
+                {{--<div id="categories-2" class="widget widget_categories">
                     <h4 class="widget-title">PRODUCT Categories</h4>
                     <ul>
                         @foreach ($product_categories as $product_cat)
@@ -262,9 +278,9 @@
                         @endforeach
 
                     </ul>
-                </div>
+                </div>--}}
                 <div id="widget_most_popular-2" class="widget widget_most_popular">
-                    <h4 class="widget-title">Popular Products</h4>
+                    <h4 class="widget-title">Other Products</h4>
                     <ul>
 
                         @foreach ($popular_products as $p_product)

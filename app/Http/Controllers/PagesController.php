@@ -8,6 +8,7 @@ use App\Models\MissionVision;
 use App\Models\OurSkill;
 use App\Models\Policy;
 use App\Models\Project;
+use App\Models\Service;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -26,10 +27,12 @@ class PagesController extends Controller
         $title="Welcome to the technology world";
         $skills = OurSkill::all();
         $homepage = HomePage::first();
+         $clients = User::where('role_id', 2)->get();
 
         $projects = Project::with(['user', 'category', 'photos'])->get();
+        $services = Service::with(['user', 'category', 'photos'])->get();
         //show the values in index.blade.php
-        return view('binary.pages.home', compact('title', 'skills', 'homepage', 'projects'));
+        return view('binary.pages.home', compact('title', 'skills', 'homepage', 'projects', 'services', 'clients'));
     }   
 
     public function StaunchXcel()
@@ -162,7 +165,7 @@ class PagesController extends Controller
  
 public function Clientele()
 {
-        $clients = User::where('role_id', 2)->with('subscriptions', 'role', 'photos')->paginate(6);
+        $clients = User::where('role_id', 2)->with('subscriptions', 'role', 'photos')->paginate(8);
         return view('binary.pages.clientele', compact('clients'));
 }   
 

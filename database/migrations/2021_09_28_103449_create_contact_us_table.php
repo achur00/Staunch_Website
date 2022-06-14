@@ -19,6 +19,7 @@ class CreateContactUsTable extends Migration
             $table->string('phone');
             $table->string('email');
             $table->text('note');
+            $table->text('footer_note');
             $table->string('facebook_url');
             $table->string('twitter_url');
             $table->string('instagram_url');

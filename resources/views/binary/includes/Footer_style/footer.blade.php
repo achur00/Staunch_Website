@@ -2,7 +2,11 @@
 
   <footer id="footer">
 
+    <?php
 
+      $contact = App\Models\ContactUs::first();
+      $projects = App\Models\Project::limit(4)->get();
+    ?>
     <div class="inner">
       <div class="container">
         <div class="row-fluid ff">
@@ -13,8 +17,8 @@
             <div id="text-2" class="widget widget_text">
               <div class="textwidget"><img src="{{ asset('asset/content/images/all/07/logo_staunchwhite.png') }}" />
                 <br /><br />
-                STAUNCH TECHNOLOGIES provides a wide range of Hosting Solutions. Get your website hosted at one of the
-                best web hosting service providers on the Internet.</div>
+                {!! $contact->footer_note !!}
+              </div>
             </div>
             <div id="search-4" class="widget widget_search">
               <form action="#" id="search-form">
@@ -54,10 +58,7 @@
           </div>
 
 
-          <?php
-
-            $contact = App\Models\ContactUs::first();
-          ?>
+          
 
           <div class="span3">
 
@@ -87,12 +88,15 @@
                 </script>
               </div>--}}
               <ul>
-                <li class="naruto"><a target="_blank" href="img_forest.jpg">
-                    <img src="{{ asset('asset/content/images/all/07/StaunchXcel.jpg') }}" alt="Forest" width="80px" ;
-                      style="border-radius: 10px">
+                  @if(isset($projects) && $projects)
+                  @foreach($projects as $item)
+                <li class="naruto"><a href="{{route('project.details', $item)}}">
+                    <img src="{{ asset('images/projects').'/'.$item->photos[0]->name }}" alt="Forest" width="80px"
+                      style="border-radius: 10px; height: 75px;">
                   </a> </li>
-
-                <li class="naruto"><a target="_blank" href="img_forest.jpg">
+                  @endforeach
+                @endif
+                {{--<li class="naruto"><a target="_blank" href="img_forest.jpg">
                     <span><img src="{{ asset('asset/content/images/all/07/StaunchXcel.jpg') }}" alt="Forest"
                         width="80px" ; style="border-radius: 10px" ;>
                 <li class="naruto"><a target="_blank" href="img_forest.jpg">
@@ -102,7 +106,7 @@
 
                 <li class="naruto"><a target="_blank" href="img_forest.jpg">
                     <span><img src="{{ asset('asset/content/images/all/07/StaunchXcel.jpg') }}" alt="Forest"
-                        width="80px" ; style="border-radius: 10px" ;>
+                        width="80px" ; style="border-radius: 10px" ;>--}}
 
               </ul>
 
@@ -131,6 +135,13 @@
 
       }
     </style>
+    
+        <!--<dl class="dl-horizontal">-->
+        <!--    <dt><i class="moon-file-2"></i></dt>-->
+        <!--    <dd style="margin-left: 55px !important; margin-top:10px;">-->
+        <!--        <h4>Our Contact Details</h4>-->
+        <!--    </dd>-->
+        <!--</dl>-->
 
     <div id="copyright">
       <div class="container">
@@ -140,10 +151,10 @@
               <ul class="footer_social_icons">
                 <li class="" style="background-image: none !important; margin-top: 3px;"><a
                     href="{{ $contact->instagram_url }}"><i class="fab fa-instagram"></i></a></li>
-                <li class="youtube"><a href="{{ $contact->youtube_url }}"><span></span></a></li>
-                <li class="linkedin"><a href="{{ $contact->linkedin_url }}"><span></span></a></li>
-                <li class="twitter"><a href="{{ $contact->twitter_url }}"><span></span></a></li>
-                <li class="facebook"><a href="{{ $contact->facebook_url }}"><span></span></a></li>
+                <li class="youtube"><a href="https://www.youtube.com/channel/UCQLLVA8_tb0QBvGT6fjcB7g" target="_blank"><span></span></a></li>
+                <li class="linkedin"><a href=""https://www.linkedin.com/company/staunch-technologies-limited/" target="_blank"><span></span></a></li>
+                <li class="twitter"><a href="https://twitter.com/StaunchTechi?s=09" target="_blank"><span></span></a></li>
+                <li class="facebook"><a href=""https://www.facebook.com/StaunchTechnologiesLtd" target="_blank"><span></span></a></li>
               </ul>
             </div>
           </div>

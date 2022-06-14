@@ -46,7 +46,7 @@
     <div class="container" id="blog">
         <div class="row">
 
-            <div class="span9">
+            <div class="span7">
 
                 <article id="post-27"
                     class="post-27 post type-post status-publish format-gallery hentry category-uncategorized category-web-development row-fluid blog-article v1 normal">
@@ -83,7 +83,7 @@
 
 
 
-                                    <dl class="dl-horizontal">
+                                    {{--<dl class="dl-horizontal" style="background: none !important;">
                                         <dt>
                                             <div class="dt"><span
                                                     class="date">{{ $service->created_at->format('d') }}</span><span
@@ -99,7 +99,7 @@
                                             </div>
                                         </dd>
 
-                                    </dl>
+                                    </dl>--}}
 
 
                                 </div>
@@ -112,32 +112,49 @@
             </div>
 
 
-            <aside class="span3 sidebar" id="widgetarea-sidebar">
+            <aside class="span5 sidebar" id="widgetarea-sidebar">
+                
+                 <div class="row-fluid row-dynamic-el" style="margin-bottom: 0px !important;">
+                    <div class="span12">
+                        <div class="header">
+                            <dl class="dl-horizontal">
+                                <dt><i class="moon-info"></i></dt>
+                                <dd style="margin-left:55px !important; margin-top:10px;">
+                                    <h4>About {{$service->name}}</h4>
+                                </dd>
+                            </dl>
+                        </div>
+                        <div class="content">
+                            <p>{!! $service->description !!}</p>
+                        </div>
+                        
+                    </div>
+                </div>
 
-                <div class="single_content" style="margin-bottom: 25px;">
+                <div class="single_content" style="margin-bottom: 25px; margin-top: 8px;">
                     <ul class="metas" style="padding-top: 0;">
-                        <li style="background: none !important; padding-left: 0;">
+                        <!--<li style="background: none !important; padding-left: 0;">-->
+                        <!--    <dl class="dl-horizontal">-->
+                        <!--        <dt>Client:</dt>-->
+                        <!--        <dd>Max Power</dd>-->
+                        <!--    </dl>-->
+                        <!--</li>-->
+                        <!--<li style="background: none !important; padding-left: 0;">-->
+                        <!--    <dl class="dl-horizontal">-->
+                        <!--        <dt>SKills:</dt>-->
+                        <!--        <dd>PHP, LARAVEL</dd>-->
+                        <!--    </dl>-->
+                        <!--</li>-->
+                        <li style="background: none !important; padding: 0;">
                             <dl class="dl-horizontal">
-                                <dt>Client:</dt>
-                                <dd>Max Power</dd>
-                            </dl>
-                        </li>
-                        <li style="background: none !important; padding-left: 0;">
-                            <dl class="dl-horizontal">
-                                <dt>SKills:</dt>
-                                <dd>PHP, LARAVEL</dd>
-                            </dl>
-                        </li>
-                        <li style="background: none !important; padding-left: 0;">
-                            <dl class="dl-horizontal">
-                                <dt>Phone:</dt>
-                                <dd><a target="_blank" href="tel:{{ $service->phone }}">{{ $service->phone }}</a></dd>
+                                <dt style="overflow: visible; padding-top: 0px;"><a class="btn btn-primary" href="{{url('contact')}}">CONTACT US TODAY</a></dt>
+                                <dd></dd>
                             </dl>
                         </li>
                     </ul>
                 </div>
 
-                <div id="categories-2" class="widget widget_categories">
+                {{--<div id="categories-2" class="widget widget_categories">
                     <h4 class="widget-title">Service Categories</h4>
                     <ul>
                         @foreach ($service_categories as $service_cat)
@@ -149,9 +166,9 @@
                         @endforeach
 
                     </ul>
-                </div>
+                </div>--}}
                 <div id="widget_most_popular-2" class="widget widget_most_popular">
-                    <h4 class="widget-title">Popular services</h4>
+                    <h4 class="widget-title">Other services</h4>
                     <ul>
 
                         @foreach ($popular_services as $p_service)

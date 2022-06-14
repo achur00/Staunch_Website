@@ -7,11 +7,10 @@
       <div class="span12 services_steps steps_nr_3">
         <div class="first_desc">
           <div class="header">
-            <h1>Maximus</h1>
-            <h2>Working process</h2>
+            <h1>Staunch</h1>
+            <h2>Work process</h2>
           </div>
-          <p>Lorem ipsum dolor onsectetuer adipiscing elit. Aene commodo ligula eget dolor, aenean mass tashin yo
-            shtakdhima...</p>
+          <p>Our work processes are specifically centered on the following:</p>
         </div>
         <?php 
           $icons = ['bars', 'brush', 'user'];

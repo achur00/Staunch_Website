@@ -227,6 +227,22 @@
                                     </div>
                                 </div>
 
+                                <div class="form-group col-12">
+                                    <label for="desc">Footer Note<span class="text-danger">*</span></label>
+                                    <div class="input-group input-group-merge">
+
+                                        <textarea name="footer_note" id="desc"
+                                            class="form-control @error('footer_note') is-invalid @enderror"
+                                            placeholder="{{__('Footer Note')}}" required autocomplete="footer_note" autofocus
+                                            rows="1">{{$contact->footer_note ?? old('footer_note')}}</textarea>
+                                        @error('footer_note')
+                                        <span class="invalid-feedback d-block text-danger" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
+                                    </div>
+                                </div>
+
 
                                 <div class="col-12 form-group">
                                     {{-- <input type="hidden" name="content" id="content" value="{{ $conta->content ?? "" }}">

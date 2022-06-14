@@ -110,7 +110,7 @@ class ProjectController extends Controller
     public function show(Project $project)
     {
         $project_categories = ProductCategory::with(['projects'])->get();
-        $popular_projects = Project::inRandomOrder()->limit(5)->get();
+        $popular_projects = Project::where('id', '!=', $project->id)->inRandomOrder()->limit(5)->get();
         return view('binary.pages.projects.show', compact('project', 'project_categories', 'popular_projects'));
     }
 

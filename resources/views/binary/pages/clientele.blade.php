@@ -1,7 +1,74 @@
 @extends('binary.master.vicemaster')
+
 @section('title')
 Clientele
 @endsection
+
+@section('styles')
+<style>
+    .pagination-outer{ text-align: center; }
+.pagination{
+    font-family: 'Ubuntu', sans-serif;
+    display: inline-flex;
+    position: relative;
+}
+.pagination li a.page-link{
+    color: #f1f1f1;
+    background: linear-gradient(#3C373D,#21262A);
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 41px;
+    height: 42px;
+    width: 42px;
+    padding: 0;
+    margin: 0 1px;
+    border: none;
+    position: relative;
+    z-index: 1;
+    transition: all 0.3s ease 0s;
+}
+.pagination li a.page-link:hover,
+.pagination li a.page-link:focus,
+.pagination li.active a.page-link:hover,
+.pagination li.active a.page-link{
+    color: #fff;
+    background: linear-gradient(#FA5100,#BC1F00);
+}
+.pagination li a.page-link:before{
+    content: '';
+    background: #bbb;
+    height: 4px;
+    width: 70%;
+    border-radius: 50%;
+    transform: translateX(-50%) scale(0);
+    position: absolute;
+    left: 50%;
+    top: calc(100% + 3px);
+    z-index: -1;
+    transition: all 0.3s ease 0s;
+}
+.pagination li a.page-link:hover:before,
+.pagination li a.page-link:focus:before,
+.pagination li.active a.page-link:before{
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+}
+@media only screen and (max-width: 480px){
+    .pagination{
+        font-size: 0;
+        display: inline-block;
+    }
+    .pagination li{
+        display: inline-block;
+        vertical-align: top;
+        margin: 0 0 20px;
+    }
+}
+    
+</style>
+
+@endsection
+
 
 @section('content')
 <!-- Main Content -->
@@ -40,7 +107,7 @@ Clientele
       </nav>
     </div>
     <div class="row-fluid">
-      <section id="portfolio-preview-items" class="three-cols span12" >
+      <section id="portfolio-preview-items" class="four-cols span12" >
 
         <div class="row filterable">
 
@@ -49,10 +116,11 @@ Clientele
           @foreach ($clients as $client)    
           <!-- item -->
           <div class="portfolio-item web-design  v1" data-id="119">
-            <div class="he-wrap tpl2" style="height: 209.83px;">
-              <img src="{{ asset('images/users').'/'.($client->photos->count()>0 ? $client->photos[0]->name : "") }}" alt="" style="height: 100%">
+            <div class="he-wrap tpl2" style="height: 109.83px; object-fit: fill; display: flex; flex-flow: column; justify-content: center;">
+              <img src="{{ asset('images/users').'/'.($client->photos->count()>0 ? $client->photos[0]->name : "") }}" alt="" style="height: 100px; width: 150px; align-self: center;">
+                
               <div class="shape2"></div>
-              <div class="overlay he-view">
+              <div class="overlay he-view" style="width: 100%;">
                 <div class="bg a0" data-animate="fadeIn">
                   <div class="center-bar v1">
                     {{-- <a href="{{ route('.details', $client) }}" class="link a0" data-animate="zoomIn"><i
@@ -70,7 +138,7 @@ Clientele
             <div class="project">
               {{-- {{ route('product.details', $product) }} --}}
               <h6><a href="">{{ Str::limit($client->company_name, 20) }}</a></h6>
-              <span class="desc">{{ Str::limit($client->company_address, 35)}}</span>
+              {{--<span class="desc">{{ Str::limit($client->company_address, 35)}}</span>--}}
             </div>
           </div>
             @endforeach

@@ -61,7 +61,7 @@ class UserController extends Controller
                 $name = date('Y_m_d_his') . $file->getClientOriginalName();
                 if($user->photos()->exists()){
                     //delete
-                    unlink(public_path().'/images/users/'.$user->photos[0]);
+                    unlink(public_path().'/images/users/'.$user->photos[0]->name);
                     $user->photos()->delete();
                 }
                     //update

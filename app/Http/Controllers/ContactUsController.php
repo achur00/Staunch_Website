@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\ContactUs;
+use App\Notifications\ContactUs as NotificationsContactUs;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -18,6 +19,31 @@ class ContactUsController extends Controller
     {
         $contact = ContactUs::first();
         return view('admin.contact.contact', compact('contact'));
+    }
+
+
+    public function sendMessage(Request $request)
+    {
+
+        $request->validate([
+            'name' => 'required|string',
+            'subject' => 'nullable|string',
+            'email' => 'required|string|email|max:255',
+            'content' => 'required|string|min:5',
+        ]);
+        // dd($request);
+        try {
+            $data = (object)$request->all();
+            // send notification
+            // $cu = new ContactUs();
+            $contact = ContactUs::first();
+           $contact->notify(new NotificationsContactUs($data));
+
+            return redirect()->back()->with('status', 'Message Sent Successfully.');
+        } catch (Exception $ex) {
+            return redirect()->back()->with('error', 'something went wrong! ' . $ex->getMessage());
+        }
+        
     }
 
     /**
@@ -43,6 +69,7 @@ class ContactUsController extends Controller
             'phone' => 'required|string',
             'email' => 'required|string|email|max:255',
             'note' => 'required|string|min:20',
+            'footer_note' => 'required|string|min:10',
             'facebook_url' => 'url|string',
             'twitter_url' => 'url|string',
             'instagram_url' => 'url|string',

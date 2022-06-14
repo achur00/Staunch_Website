@@ -8,7 +8,7 @@
   <meta name="csrf-token" content="{{ csrf_token() }}">
   <title> @yield('title') | {{ Config('app.name'), 'Staunch Technologies'}} </title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <link rel="icon" href="{{asset('asset/content/images/all/07/staunch logo png.png')}}" type="image/png">
+  <link rel="icon" href="{{asset('android-chrome-512x512.png')}}" type="image/png">
   <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
   <!--[if lt IE 9]>
 		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -25,6 +25,7 @@
 
     <!-- TOP JAVASCRIPTS -->
   @include('binary.includes.header_style.topjs')
+  @yield('scripts')
   <!-- TOP JAVASCRIPTS -->
 
   <style type="text/css" media="screen">
@@ -53,6 +54,53 @@
     .qtrans_flag_zh {
       background: url('asset/content/plugins/qtranslate/flags/cn.png') no-repeat
     }
+        /* these styles will animate bootstrap alerts. */
+        .alert {
+            z-index: 2000 !important;
+            top: 60px;
+            right: 18px;
+            min-width: 30%;
+            position: fixed;
+            animation: slide 0.5s forwards;
+        }
+
+        @keyframes slide {
+            100% {
+                top: 30px;
+            }
+        }
+
+        @media screen and (max-width: 668px) {
+            .alert {
+                /* center the alert on small screens */
+                left: 10px;
+                right: 10px;
+            }
+        }
+        
+        .post_page_cont #widget_contact_info-2 ul, aside ul, .h-social ul{
+            list-style-type: none !important;
+            padding-left: 0;
+        }
+        .post_page_cont #widget_contact_info-2 ul li{
+            margin-bottom: 15px;
+        }
+        .post_page_cont #widget_contact_info-2 ul li a{
+            line-height: 20px;
+            padding-top: 10px;
+            padding-bottom: 5px;
+            padding-right: 15px;
+            color: #d02424;
+        }
+        .h-social{
+            margin-top: 35px;
+        }
+        .h-social ul{
+            display: flex;
+            justify-content: space-between;
+            flex-flow: row wrap;
+        }
+
   </style>
 </head>
 <!-- End Header -->
@@ -68,7 +116,11 @@
           <!-- Logo -->
           @include('binary.includes.header_style.logo')
           <!-- #logo -->
-
+            @php
+                $services = App\Models\Service::all();
+                $products = App\Models\Product::all();
+                $projects = App\Models\Project::all();
+            @endphp
           <!-- Menu Section -->
           @include('binary.includes.header_style.menue_section')
           <!-- End Menu #navigation -->

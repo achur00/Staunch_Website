@@ -48,7 +48,7 @@
 
 @include('binary.pages.services.services_widget')
 
-<div class="row-fluid row-dynamic-el " style="">
+<div class="row-fluid row-dynamic-el " style="margin-bottom: 20px;">
 
   <div class="container">
 
@@ -59,7 +59,7 @@
           <dl class="dl-horizontal">
             <dt><i class="moon-reading"></i></dt>
             <dd style="margin-left:55px !important; margin-top:10px;">
-              <h4>project</h4>
+              <h4>Projects</h4>
             </dd>
           </dl>
           <div style="padding-top:13px;" class="pagination"><a href="#" class="prev" title="Previous"
@@ -78,12 +78,12 @@
                 <li class="blog-article  active">
                   <div class="row-fluid">
                     <div class="span12">
-                      <div class="media" style="height: 228.78%;"><img
+                      <div class="media" style="height: 228.78px;"><img
                           src="{{ asset('images/projects').'/'.$project->photos[0]->name }}" alt="" style="height: 100%;">
                       </div>
                     </div>
                   </div>
-                  <dl class="dl-horizontal">
+                  <dl class="dl-horizontal" style="background: none;">
                     <dt>
                       <div class="dt"><span class="date">{{ $project->created_at->format('d') }}</span><span
                           class="month">{{ $project->created_at->format('M') }}</span><span
@@ -245,12 +245,21 @@
         </div>
         <!-- Clients Section -->
         <section class="row-fluid clients">
+            
+          @if (isset($clients))
+          @foreach ($clients as $client)    
+          <!-- item -->
           <div class="item">
             <a href="#">
-              <img alt="img" src="{{ asset('asset/content/images/all/07/natnudo4.png')}}">
+              <img alt="img" src="{{ asset('images/users').'/'.($client->photos->count()>0 ? $client->photos[0]->name : "")}}">
             </a>
           </div>
-          <div class="item">
+          @endforeach
+          @endif
+          
+          
+          
+          {{--<div class="item">
             <a href="#">
               <img alt="img" src="{{ asset('asset/content/images/all/07/1.png') }}">
             </a>
@@ -279,7 +288,7 @@
             <a href="#">
               <img alt="img" src="{{ asset('asset/content/images/all/07/6.png')}}">
             </a>
-          </div>
+          </div>--}}
           <!-- Clients Section -->
         </section>
       </div>

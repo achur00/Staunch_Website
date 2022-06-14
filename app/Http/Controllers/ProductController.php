@@ -110,7 +110,7 @@ class ProductController extends Controller
     public function show(Product $product)
     {
         $product_categories = ProductCategory::with(['products'])->get();
-        $popular_products = Product::inRandomOrder()->limit(5)->get();
+        $popular_products = Product::where('id', '!=', $product->id)->inRandomOrder()->limit(5)->get();
         return view('binary.pages.products.show', compact('product', 'product_categories', 'popular_products'));
     }
 

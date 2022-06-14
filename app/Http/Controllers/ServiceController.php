@@ -113,7 +113,7 @@ class ServiceController extends Controller
     public function show(Service $service)
     {
         $service_categories = ServiceCategory::with(['services'])->get();
-        $popular_services = Service::inRandomOrder()->limit(5)->get();
+        $popular_services = Service::where('id', '!=', $service->id)->inRandomOrder()->limit(5)->get();
         return view('binary.pages.services.show', compact('service', 'service_categories', 'popular_services'));
     }
 
@@ -199,9 +199,10 @@ class ServiceController extends Controller
     public function search(ServiceCategory $service_category)
     {
         $services = $service_category->services()->latest()->paginate(6);
+        $skills = OurSkill::all();
         // $admins = User::whereRoleId(1)->orderBy('name', 'DESC')->get();
         // paginate(5);
         // return "here in admin";
-        return view('binary.pages.services.services', compact('services'));
+        return view('binary.pages.services.services', compact('services', 'skills'));
     }
 }

@@ -47,15 +47,45 @@ contact
 
                                     <div class="span12">
                                         <form name="contactForm" class="standard-form row-fluid"
-                                            action="contact_form.php" method="post">
+                                            action="{{ route('contact.message') }}" method="post">
+                                            @csrf
+
+                                            @error('name')
+                                            <span style="display: block; color:#f00" role="alert">
+                                                <strong  class="text-error">{{ $message }}</strong>
+                                            </span>
+                                            @enderror
                                             <input class="span6" name="name" placeholder="Name" type="text"
                                                 id="themeple_name" value="" />
-                                            <input class="span6" name="e-mail" placeholder="E-Mail" type="text"
+
+
+                                            @error('email')
+                                            <span style="display: block; color:#f00" role="alert">
+                                                <strong  class="text-error">{{ $message }}</strong>
+                                            </span>
+                                            @enderror
+                                            <input class="span6" name="email" placeholder="E-Mail" type="text"
                                                 id="themeple_e-mail" value="" />
+                                           
+
+                                            @error('subject')
+                                            <span style="display: block; color:#f00" role="alert">
+                                                <strong class="text-error">{{ $message }}</strong>
+                                            </span>
+                                            @enderror
                                             <input class="span6" name="subject" placeholder="Subject" type="text"
-                                                id="themeple_subject" value="" />
-                                            <textarea class="span12" placeholder="Content" name="themeple_content"
-                                                cols="40" rows="7" id="themeple_content"></textarea>
+                                                id="themeple_subject" value="" />                                           
+
+
+                                            @error('content')
+                                            <span style="display: block; color:#f00" role="alert">
+                                                <strong class="text-error">{{ $message }}</strong>
+                                            </span>
+                                            @enderror
+                                            <textarea class="span12" placeholder="Content" name="content" cols="40"
+                                                rows="7" id="themeple_content" style="resize: vertical;"></textarea>
+                                           
+
                                             <p class="perspective"><input type="submit" value="Send Message"
                                                     class="custom_btn" /></p>
                                         </form>
@@ -75,9 +105,30 @@ contact
                                 </dl>
                             </div>
                             <div id="widget_contact_info-2" class="widget widget_contact_info">
-                                <li class="phone">Phone: <span>{{ $contact->phone }}</span></li>
-                                <li class="email">Email: <span>{{ $contact->email }}</span></li>
+                                <ul>
+                                    
+                                <li class="address"><a href="#"><i class="fas fa-map-marker-alt fa-2x"></i></a> <span>{{ $contact->address }}</span></li>
+                                
+                                <li class="phone"><a href="tel:{{ $contact->phone }}"> <i class="fa fa-phone fa-2x"></i></a> <span>{{ $contact->phone }}</span></li>
+                                
+                                <li class="email"><a href="mailto:{{ $contact->email }}"><i class="fas fa-envelope fa-2x"></i></a> <span>{{ $contact->email }}</span></li>
+                                
+                                <div class="h-social">
+                                    <ul>
+                                <li class="youtube" style=""><a href="{{ $contact->youtube_url }}"> <i class="fab fa-youtube fa-2x"></i></a></li>
+                                
+                                <li class="instagram" style=""><a
+                                    href="{{ $contact->instagram_url }}"><i class="fab fa-instagram fa-2x"></i></a></li>
+                                    
+                                <li class="facebook" style=""><a href="{{ $contact->facebook_url }}"><i class="fab fa-facebook fa-2x"></i></a></li>
+
+                                    
+                                <li class="linkedin" style=""><a href="{{ $contact->linkedin_url }}"><i class="fab fa-linkedin fa-2x"></i></a></li>
+                                
+                                <li class="twitter" style=""><a href="{{ $contact->twitter_url }}"><i class="fab fa-twitter fa-2x"></i></a></li>
                                 </ul>
+                                </div>
+                                    
                             </div>
 
                             <div class="span9">
@@ -107,5 +158,33 @@ contact
 
 <!-- Footer -->
 </div>
+{{-- Success Alert --}}
+@if(session('status'))
+<div class="alert alert-success"><a class="close" data-dismiss="alert" href="#">&times;</a><strong></strong>
+    {{session('status')}}</div>
+@endif
 
+{{-- Error Alert --}}
+@if(session('error'))
+<div class="alert alert-error"><a class="close" data-dismiss="alert" href="#">&times;</a><strong></strong>
+    {{session('error')}}</div>
+@endif
+
+<script>
+    //close the alert after 3 seconds.
+          
+           window.addEventListener('load', function(){
+               let al = document.querySelector('.alert');            
+               setTimeout(function() {
+                   (al) ? (al.style.display = "none") : '';                
+               }, 5000);
+             });
+        
+           // $(document).ready(function(){
+         // setTimeout(function() {
+         //     $(".alert").alert('close');
+         // }, 3000);
+         // });
+           
+</script>
 @endsection

@@ -11,8 +11,8 @@
   @yield('metatags')
   <title> @yield('title') | {{ Config('app.name'), 'Staunch Technologies'}} </title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-  <link rel="icon" href="{{asset('asset/content/images/all/07/staunch logo png.png')}}" type="image/png">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="icon" href="{{asset('android-chrome-512x512.png')}}" type="image/png">
   <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
   <!--[if lt IE 9]>
 		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -71,6 +71,12 @@
     <div class="container">
       <div class="row-fluid">
         <div class="span12">
+        @php
+            $services = App\Models\Service::all();
+            $products = App\Models\Product::all();
+            $projects = App\Models\Project::all();
+        @endphp
+        
           <!-- Logo -->
           @include('binary.includes.header_style.logo')
           <!-- #logo -->

@@ -44,7 +44,7 @@ Services
                             <h2 style="color:rgb(0, 0, 0);"><span
                                     style="font-weight:300; font-size:28px; color:rgb(0, 0, 0); "><span
                                         style="color:#009dcd; font-weight:bold; font-size:inherit;">Subscribe
-                                    </span> TO Our Impeccable Services</span></h2>
+                                    </span> To Our Impeccable Services</span></h2>
                             <p class="no_border" style="color:#969ba2;"></p>
                             <div class="btns"></div>
                         </div>
@@ -231,7 +231,7 @@ Services
 				font-weight: bold;
 				color: #fff;
 				font-size: 14px; 
-			       float:left;" href="#">Apply Now</a></p>
+			       float:left;" href="{{ route('careers.create') }}">Apply Now</a></p>
                             <style>
                                 #btn_39:after {
                                     background: #0074a7

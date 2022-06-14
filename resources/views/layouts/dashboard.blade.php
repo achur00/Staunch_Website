@@ -20,7 +20,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Favicon -->
-    <link rel="icon" href="{{asset('asset/content/images/all/07/staunch logo png.png')}}" type="image/png">
+    <link rel="icon" href="{{asset('android-chrome-512x512.png')}}" type="image/png">
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
     <!-- Icons -->
@@ -266,6 +266,33 @@
 
                                             <span class="sidenav-mini-icon"> MPP </span>
                                             <span class="sidenav-normal"> Manage Pricing Plan </span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#navbar-career" data-toggle="collapse" role="button"
+                                aria-expanded="false" aria-controls="navbar-examples">
+                                <i class="ni ni-briefcase-24 text-orange"></i>
+                                <span class="nav-link-text">Careers</span>
+                            </a>
+                            <div class="collapse" id="navbar-career">
+                                <ul class="nav nav-sm flex-column">
+                                    <li class="nav-item">
+                                        <a href="{{route('careers.index')}}" class="nav-link">
+
+                                            <span class="sidenav-mini-icon"> AP </span>
+                                            <span class="sidenav-normal"> Applications </span>
+                                        </a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a href="{{route('career.info.show')}}" class="nav-link">
+
+                                            <span class="sidenav-mini-icon"> CI </span>
+                                            <span class="sidenav-normal"> Career Info </span>
                                         </a>
                                     </li>
                                 </ul>
