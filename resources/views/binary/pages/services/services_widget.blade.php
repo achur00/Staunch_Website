@@ -27,7 +27,7 @@
               <div class="portfolio-item v1">
                 <div class="he-wrap tpl2" style="height: 189.63%">
                   <img alt="img" src="{{ asset('images/services').'/'.$service->photos[0]->name }}" style="height: 100%;">
-
+{{-- zoom --}}
                   <div class="overlay he-view">
                     <div class="bg a0" data-animate="fadeIn">
                       <div class="center-bar v1">
@@ -39,6 +39,7 @@
                       </div>
                     </div>
                   </div>
+    {{--  end zoom--}}
                 </div>
                 <div class="project">
                   <h6><a href="{{ route('service.details', $service) }}">{{ $service->name }}</a></h6> <span

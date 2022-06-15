@@ -38,6 +38,7 @@ class ServiceController extends Controller
         $skills = OurSkill::all();
         $services = Service::with(['user', 'category', 'photos'])->get();
         return view('binary.pages.services.services', compact('services', 'skills'));
+        // dd('binary.pages.services.services', compact('services'));
     }
 
     /**
@@ -115,6 +116,10 @@ class ServiceController extends Controller
         $service_categories = ServiceCategory::with(['services'])->get();
         $popular_services = Service::where('id', '!=', $service->id)->inRandomOrder()->limit(5)->get();
         return view('binary.pages.services.show', compact('service', 'service_categories', 'popular_services'));
+        // if($service->id==6){ return view('binary.pages.services.show3', compact('service', 'service_categories', 'popular_services'));
+        // }
+        // else{
+        // return view('binary.pages.services.show2', compact('service', 'service_categories', 'popular_services'));}
     }
 
     /**
