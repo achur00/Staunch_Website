@@ -13,6 +13,7 @@ class CreateServicesTable extends Migration
      */
     public function up()
     {
+        if (!Schema::hasTable('services')) {
         Schema::create('services', function (Blueprint $table) {
             $table->id();
             $table->string('name');
@@ -22,7 +23,7 @@ class CreateServicesTable extends Migration
             $table->string('phone')->nullable();
             $table->timestamps();
         });
-    }
+    }}
 
     /**
      * Reverse the migrations.

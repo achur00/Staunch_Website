@@ -13,6 +13,7 @@ class CreateContactUsTable extends Migration
      */
     public function up()
     {
+        if (!Schema::hasTable('contact_us')) {
         Schema::create('contact_us', function (Blueprint $table) {
             $table->id();
             $table->string('address');
@@ -28,7 +29,7 @@ class CreateContactUsTable extends Migration
             $table->string('website_url');
             $table->timestamps();
         });
-    }
+    }}
 
     /**
      * Reverse the migrations.

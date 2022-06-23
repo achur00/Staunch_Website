@@ -2,11 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CourseDetail;
+use App\Models\EnrolStudent;
+use App\Models\MobileDev;
+use App\Models\SessionYear; 
 use App\Models\OurSkill;
 use App\Models\ProductCategory;
 use App\Models\Service;
 use App\Models\ServiceCategory;
 use Exception;
+use Facade\FlareClient\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -114,8 +119,16 @@ class ServiceController extends Controller
     public function show(Service $service)
     {
         $service_categories = ServiceCategory::with(['services'])->get();
+
         $popular_services = Service::where('id', '!=', $service->id)->inRandomOrder()->limit(5)->get();
-        return view('binary.pages.services.show', compact('service', 'service_categories', 'popular_services'));
+
+        $courses=CourseDetail::all();
+        $mobiles = MobileDev::all(); 
+        $sessions=SessionYear::with('students')->get();
+         $students=EnrolStudent::all();
+
+        return view('binary.pages.services.show', compact('service', 'service_categories', 'popular_services','courses', 'sessions', 'sessions', 'students','mobiles'));
+        // dd(SessionYear::with(['enrol_students'])->get());
         // if($service->id==6){ return view('binary.pages.services.show3', compact('service', 'service_categories', 'popular_services'));
         // }
         // else{

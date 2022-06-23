@@ -13,6 +13,7 @@ class CreateHomePagesTable extends Migration
      */
     public function up()
     {
+        if (!Schema::hasTable('home_pages')) {
         Schema::create('home_pages', function (Blueprint $table) {
             $table->id();
             $table->string('title');
@@ -20,7 +21,7 @@ class CreateHomePagesTable extends Migration
             $table->text('description');
             $table->timestamps();
         });
-    }
+    }}
 
     /**
      * Reverse the migrations.

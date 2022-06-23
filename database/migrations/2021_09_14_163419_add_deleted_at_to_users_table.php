@@ -13,10 +13,11 @@ class AddDeletedAtToUsersTable extends Migration
      */
     public function up()
     {
+        if (!Schema::hasTable('users')) {
         Schema::table('users', function (Blueprint $table) {
             $table->softDeletes();
         });
-    }
+    }}
 
     /**
      * Reverse the migrations.

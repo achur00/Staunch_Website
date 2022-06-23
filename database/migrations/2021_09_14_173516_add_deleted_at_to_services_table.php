@@ -13,10 +13,11 @@ class AddDeletedAtToServicesTable extends Migration
      */
     public function up()
     {
+        if (!Schema::hasTable('services')) {
         Schema::table('services', function (Blueprint $table) {
             $table->softDeletes();
         });
-    }
+    }}
 
     /**
      * Reverse the migrations.

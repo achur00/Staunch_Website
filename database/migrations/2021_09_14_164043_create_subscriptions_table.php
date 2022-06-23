@@ -13,6 +13,7 @@ class CreateSubscriptionsTable extends Migration
      */
     public function up()
     {
+        if (!Schema::hasTable('subscriptions')) {   
         Schema::create('subscriptions', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('service_id');
@@ -27,7 +28,7 @@ class CreateSubscriptionsTable extends Migration
             $table->string('url')->nullable();
             $table->timestamps();
         });
-    }
+    }}
 
     /**
      * Reverse the migrations.

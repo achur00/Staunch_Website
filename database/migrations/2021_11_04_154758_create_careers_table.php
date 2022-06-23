@@ -13,6 +13,7 @@ class CreateCareersTable extends Migration
      */
     public function up()
     {
+        if (!Schema::hasTable('careers')) {
         Schema::create('careers', function (Blueprint $table) {
             $table->id();
             $table->string('name');
@@ -24,7 +25,7 @@ class CreateCareersTable extends Migration
             $table->text('skills');
             $table->timestamps();
         });
-    }
+    }}
 
     /**
      * Reverse the migrations.
@@ -33,6 +34,6 @@ class CreateCareersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('careers');
+        // Schema::dropIfExists('careers');
     }
 }

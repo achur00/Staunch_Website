@@ -13,6 +13,7 @@ class CreateAboutUsTable extends Migration
      */
     public function up()
     {
+        if (!Schema::hasTable('about_us')) {
         Schema::create('about_us', function (Blueprint $table) {
             $table->id();
             $table->string('title');
@@ -20,8 +21,8 @@ class CreateAboutUsTable extends Migration
             $table->string('photo')->nullable();
             $table->timestamps();
         });
-    }
-
+    }}
+    
     /**
      * Reverse the migrations.
      *

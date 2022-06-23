@@ -13,12 +13,13 @@ class CreatePoliciesTable extends Migration
      */
     public function up()
     {
+        if (!Schema::hasTable('policies')) {
         Schema::create('policies', function (Blueprint $table) {
             $table->id();
             $table->text('content');
             $table->timestamps();
         });
-    }
+    }}
 
     /**
      * Reverse the migrations.

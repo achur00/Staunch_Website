@@ -13,6 +13,7 @@ class CreateTransactionsTable extends Migration
      */
     public function up()
     {
+        if (!Schema::hasTable('transactions')) {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
             $table->integer('subscription_id');
@@ -20,7 +21,7 @@ class CreateTransactionsTable extends Migration
             $table->string('status');
             $table->timestamps();
         });
-    }
+    }}
 
     /**
      * Reverse the migrations.

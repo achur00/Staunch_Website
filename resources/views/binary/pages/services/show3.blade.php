@@ -1,7 +1,4 @@
-@extends('binary.master.vicemaster')
-@section('title')
-Services
-@endsection
+
 @section('content')
 
 <div class="header_page">
@@ -43,8 +40,8 @@ Services
                         <div class="span12 dynamic_page_header" style="">
                             <h2 style="color:rgb(0, 0, 0);"><span
                                     style="font-weight:300; font-size:28px; color:rgb(0, 0, 0); "><span
-                                        style="color:#009dcd; font-weight:bold; font-size:inherit;">Subscribe
-                                    </span> To Our Impeccable Services</span></h2>
+                                        style="color:#009dcd; font-weight:bold; font-size:inherit;">Join
+                                    </span> Our Bootcamp Starting This July</span></h2>
                             <p class="no_border" style="color:#969ba2;"></p>
                             <div class="btns"></div>
                         </div>
@@ -54,6 +51,8 @@ Services
                 </div>
 
             </div>
+        </div>
+        
 
             <div class="row-fluid row-dynamic-el " style="">
 
@@ -79,68 +78,121 @@ Services
                             <div class="row-fluid">
                                
                                 <h6>STAUNCH TECHNOLOGIES</h6>
-                                <p>{{$service->description}}</p>
+                                {{$service->description;}}
+                                @foreach($courses as $course)
+                                {{$course->last_name;}}
+                                
+                                @endforeach
 
-                                We also render other Technology based services which include: e-Business Consulting,
-                                Website Design, Online Marketing and IT Support Services.
+                                {{-- @foreach($sessions as $session)
+                                {{$session->students}}
+                                @endforeach --}}
+
+
+                            
 
                             </div>
 
 
+                            
+
+
+                            
+                                
+                            
+                                
+                            <h2 style="text-align:center; margin:5% 10% -3% 10%;font-weight:300; font-size:25px; color:rgb(0, 0, 0);"> <span style="color:#009dcd; font-weight:bold; font-size:inherit;">Web App</span> Development</h2>
+
+                                <section id="content" class="page-dynamic_template-price_table sequentialchildren  ">
+                                    
+                                    @foreach ($courses as $course)
+                                            <div class="span4"><div class="price_container"><div class="price_box"><div class="title">{{ $course->course_name }}</div><div class="price">₦{{  $course->course_price  }}<sup>00</sup></div><ul><li style="margin:0%,10%,10%,10%;">
+                                                {{-- <div><h3>Topics</h3></div> --}}
+                                                @foreach($course->curriculum as $curriculum)
+                                                <p>{{ $curriculum }}</p>
+                                            @endforeach</li>
+                                            <li><h4>{{ $course->course_duration }} duration </h4></li>
+                                            </ul><div class="footer"><p class="perspective"><a class="custom_btn" id="btn_69" style="
+                                            padding: 12px 31px;
+                                            background: #009dcd;
+                                            
+                                            font-weight: bold;
+                                            color: #fff;
+                                            font-size: 14px; 
+                                            float:left;" 
+                                            href="#">Enroll  Now</a></p><style>#btn_69:after{background:#0074a7}</style></div></div></div></div>
+                                @endforeach
+
+                                
+                                          </div>
+                                
+                                        </div>
+                                
+                                      </div>                
+                                    </div>
+                                    
+                                  </div>
+
+                                  
+                                </section>
+
+
+
+                        {{--  --}}
+
+<div class="container">
+    <h2 style="text-align:center; margin:5% 10% -3% 10%;font-weight:300; font-size:25px; color:rgb(0, 0, 0);"> <span style="color:#009dcd; font-weight:bold; font-size:inherit;">Mobile App</span> Development</h2>
+
+                        <section id="content" class="page-dynamic_template-price_table sequentialchildren  ">
+                                  
+                            @foreach ($mobiles as $mobile)
+                                    <div class="span4"><div class="price_container"><div class="price_box"><div class="title">{{ $mobile->course_name }}</div><div class="price">₦{{  $mobile->course_price  }}<sup>00</sup></div><ul><li style="margin:0%,10%,10%,10%;">
+                                        {{-- <div><h3>Topics</h3></div> --}}
+                                        @foreach($mobile->curriculum as $curriculum)
+                                        <p>{{ $curriculum }}</p>
+                                    @endforeach</li>
+                                    <li><h4>{{ $course->course_duration }} duration </h4></li>
+                                    </ul><div class="footer"><p class="perspective"><a class="custom_btn" id="btn_69" style="
+                                    padding: 12px 31px;
+                                    background: #009dcd;
+                                    
+                                    font-weight: bold;
+                                    color: #fff;
+                                    font-size: 14px; 
+                                    float:left;" 
+                                    href="#">Enroll  Now</a></p><style>#btn_69:after{background:#0074a7}</style></div></div></div></div>
+                        @endforeach
+                                  </div>
+                        
+                                </div>
+                        
+                              </div>                
+                            </div>
+                            
+                          </div>
+                        </section>
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                             <div class="span12 services_group"></div>
                             <div class="span12 services_group"></div>
-
-
-
-                            {{--<div class="span9">
-                                    <dl class="dl-horizontal">
-                                        <dt><i class="moon-screen"></i></dt>
-                                        <dd>
-                                            <h5>Responsive & Retina</h5>
-                                            <p>Lorem ipsum dolor sit amet sed, consectetur. Ut rutrum auctor orci, sed
-                                                malesuada sapien faucibus ac.</p>
-                                        </dd>
-                                    </dl>
-                                    <dl class="dl-horizontal">
-                                        <dt><i class="moon-file-2"></i></dt>
-                                        <dd>
-                                            <h5>Page Builder</h5>
-                                            <p>Lorem ipsum dolor sit amet sed, consectetur. Ut rutrum auctor orci, sed
-                                                malesuada sapien faucibus ac.</p>
-                                        </dd>
-                                    </dl>
-                                    <dl class="dl-horizontal">
-                                        <dt><i class="moon-palette"></i></dt>
-                                        <dd>
-                                            <h5>Easy Theme Options</h5>
-                                            <p>Lorem ipsum dolor sit amet sed, consectetur. Ut rutrum auctor orci, sed
-                                                malesuada sapien faucibus ac.</p>
-                                        </dd>
-                                    </dl>
-                                    <dl class="dl-horizontal">
-                                        <dt><i class="moon-user"></i></dt>
-                                        <dd>
-                                            <h5>Excellent Support</h5>
-                                            <p>Lorem ipsum dolor sit amet sed, consectetur. Ut rutrum auctor orci, sed
-                                                malesuada sapien faucibus ac.</p>
-                                        </dd>
-                                    </dl>
-                                    <dl class="dl-horizontal">
-                                        <dt><i class="moon-star"></i></dt>
-                                        <dd>
-                                            <h5>5 Star Documentation</h5>
-                                            <p>Lorem ipsum dolor sit amet sed, consectetur. Ut rutrum auctor orci, sed
-                                                malesuada sapien faucibus ac.</p>
-                                        </dd>
-                                    </dl>
-                                    <dl class="dl-horizontal">
-                                        <dt><i class="moon-paint-format"></i></dt>
-                                        <dd>
-                                            <h5>Frequently Updates</h5>
-                                            <p>Lorem ipsum dolor sit amet sed, consectetur. Ut rutrum auctor orci, sed
-                                                malesuada sapien faucibus ac.</p>
-                                        </dd>
-                                    </dl>--}}
 
 
 
@@ -174,45 +226,27 @@ Services
 
 
 
-        <div class="row-fluid row-dynamic-el " style="margin-bottom:-100px;">
-
-            <div class="container">
-
-                <div class="row-fluid">
-
-                    <div class="span12 textbar-container ">
-                        <div class="textbar">
-                            <h2 class=""><span
-                                    style="color:#009dcd; font-weight:bold; font-size:inherit;">StaunchedTechnologies</span>
-                                is always looking for brilliant & talented people in web to join us</h2>
-                            <h4 class=""></h4>
-                            <p class="perspective"><a class="custom_btn" id="btn_39" style="
-				padding: 12px 31px;
-				background: #009dcd;
-				
-				font-weight: bold;
-				color: #fff;
-				font-size: 14px; 
-			       float:left;" href="{{ route('careers.create') }}">Apply Now</a></p>
-                            <style>
-                                #btn_39:after {
-                                    background: #0074a7
-                                }
-                            </style>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-    </div>
-
-    </div>
-</section>
+        
 <a href="#" class="scrollup">Scroll</a>
 <!-- Social Profiles -->
+
+
+
+
+
+
+      
+   
+
+
+<a href="#" class="scrollup">Scroll</a> 
+<!-- Social Profiles -->
+
+
+
+
+
+
 
 
 

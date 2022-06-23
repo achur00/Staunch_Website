@@ -650,7 +650,7 @@ border-top:1px solid #fff;
 
 .price_box {border:1px solid #e1e1e1; background:#fff}
 
-.price_box .title{font-size:23px; color:#68676a; text-align: center; padding-top:15px; padding-bottom:15px; border-bottom:1px solid #e1e1e1; font-weight: 500;}
+.price_box .title{font-size:23px; color:#68676a; text-align: center;  padding-top:15px; padding-bottom:15px; border-bottom:1px solid #e1e1e1; font-weight: 500;}
 
 .price_box .price{text-align: center;font-size: 35px;padding-top: 20px;padding-bottom: 15px; border-bottom:1px solid #e1e1e1; background:#f7f7f7; color:#68676a}
 

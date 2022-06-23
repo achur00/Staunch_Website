@@ -12,7 +12,8 @@ class CreatePricingsTable extends Migration
      * @return void
      */
     public function up()
-    {
+    {   
+        if (!Schema::hasTable('pricings')) {
         Schema::create('pricings', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('service_id');
@@ -21,7 +22,7 @@ class CreatePricingsTable extends Migration
             $table->double('amount');
             $table->timestamps();
         });
-    }
+    }}
 
     /**
      * Reverse the migrations.

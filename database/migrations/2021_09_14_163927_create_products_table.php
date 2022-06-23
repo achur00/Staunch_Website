@@ -13,6 +13,7 @@ class CreateProductsTable extends Migration
      */
     public function up()
     {
+        if (!Schema::hasTable('products')) {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string('name')->unique();
@@ -23,7 +24,7 @@ class CreateProductsTable extends Migration
             $table->string('url')->nullable();
             $table->timestamps();
         });
-    }
+    }}
 
     /**
      * Reverse the migrations.

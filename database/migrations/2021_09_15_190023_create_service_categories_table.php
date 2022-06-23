@@ -13,12 +13,13 @@ class CreateServiceCategoriesTable extends Migration
      */
     public function up()
     {
+        if (!Schema::hasTable('service_categories')) {
         Schema::create('service_categories', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->timestamps();
         });
-    }
+    }}
 
     /**
      * Reverse the migrations.

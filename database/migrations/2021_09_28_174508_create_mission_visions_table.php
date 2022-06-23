@@ -13,13 +13,14 @@ class CreateMissionVisionsTable extends Migration
      */
     public function up()
     {
+        if (!Schema::hasTable('mission_visions')) {
         Schema::create('mission_visions', function (Blueprint $table) {
             $table->id();
             $table->text('vision');
             $table->text('mission');
             $table->timestamps();
         });
-    }
+    }}
 
     /**
      * Reverse the migrations.

@@ -13,12 +13,13 @@ class CreateCareerInfosTable extends Migration
      */
     public function up()
     {
+        if (!Schema::hasTable('career_infos')) {
         Schema::create('career_infos', function (Blueprint $table) {
             $table->id();
             $table->longText('info');
             $table->timestamps();
         });
-    }
+    }}
 
     /**
      * Reverse the migrations.

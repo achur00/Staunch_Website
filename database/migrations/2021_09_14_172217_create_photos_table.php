@@ -13,6 +13,7 @@ class CreatePhotosTable extends Migration
      */
     public function up()
     {
+        if (!Schema::hasTable('photos')) {
         Schema::create('photos', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('imageable_id');
@@ -20,7 +21,7 @@ class CreatePhotosTable extends Migration
             $table->string('name');
             $table->timestamps();
         });
-    }
+    }}
 
     /**
      * Reverse the migrations.

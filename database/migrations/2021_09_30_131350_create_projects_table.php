@@ -13,6 +13,7 @@ class CreateProjectsTable extends Migration
      */
     public function up()
     {
+        if (!Schema::hasTable('projects')) {
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
             $table->string('name')->unique();
@@ -23,7 +24,7 @@ class CreateProjectsTable extends Migration
             $table->string('url')->nullable();
             $table->timestamps();
         });
-    }
+    }}
 
     /**
      * Reverse the migrations.

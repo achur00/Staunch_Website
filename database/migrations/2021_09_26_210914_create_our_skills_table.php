@@ -13,13 +13,14 @@ class CreateOurSkillsTable extends Migration
      */
     public function up()
     {
+        if (!Schema::hasTable('our_skills')) {
         Schema::create('our_skills', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->integer('percentage');
             $table->timestamps();
         });
-    }
+    }}
 
     /**
      * Reverse the migrations.

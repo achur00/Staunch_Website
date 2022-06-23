@@ -12,14 +12,14 @@ class CreatePostsTable extends Migration
      * @return void
      */
     public function up()
-    {
+    {    if (!Schema::hasTable('posts')) {
         Schema::create('posts', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title');
             $table->mediumText('body');
             $table->timestamps();
         });
-    }
+    }}
 
     /**
      * Reverse the migrations.
